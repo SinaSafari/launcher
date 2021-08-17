@@ -9,7 +9,6 @@ def cli(argument_list):
     long_options = ["updaterequirements", "serve", "test", "format"]
     try:
         arguments, values = getopt.getopt(argument_list, short_options, long_options)
-        print("arguments: ", values)
         for current_argument, current_value in arguments:
 
             if current_argument in ("-u", "--updaterequirements"):
