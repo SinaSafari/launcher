@@ -3,7 +3,7 @@ from typing import Dict
 import joblib
 import numpy as np
 from joblib import load
-from lib.diabetes_model import train_diabetes_model
+from libs.diabetes_model import train_diabetes_model
 
 
 class DiabetesService:
