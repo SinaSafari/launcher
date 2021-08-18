@@ -4,6 +4,7 @@ load_dotenv("./.env.local")
 
 import os
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 from starlette.graphql import GraphQLApp
 import graphene
 
@@ -30,6 +31,9 @@ async def startup():
 async def shutdown():
     await database.disconnect()
 
+
+# static files route
+app.mount("/static", StaticFiles(directory="public"), name="static")
 
 # restapi routes
 app.include_router(app_info_router, prefix="/api/v1")
