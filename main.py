@@ -32,8 +32,8 @@ async def shutdown():
 
 
 # restapi routes
-app.include_router(app_info_router)
-app.include_router(diabetes_router, prefix="/diabetes")
+app.include_router(app_info_router, prefix="/api/v1")
+app.include_router(diabetes_router, prefix="/api/v1")
 
 # graphql app
 app.add_route("/gql", GraphQLApp(schema=graphene.Schema(query=Query)))

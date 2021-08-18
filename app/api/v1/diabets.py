@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from app.controllers.diabetes_controller import DiabetesController
 
-router = APIRouter()
+router = APIRouter(prefix="/diabetes")
 
 
 @router.get("/train")
