@@ -1,7 +1,11 @@
 import sys
 import getopt
-from lib.launcher.commands import run_format_command, run_serve_app_command, run_tests_command, run_update_requirements_txt_command
-
+from lib.launcher.commands import (
+    run_format_command,
+    run_serve_app_command,
+    run_tests_command,
+    run_update_requirements_txt_command,
+)
 
 
 def cli(argument_list):

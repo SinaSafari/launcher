@@ -88,3 +88,10 @@ or
 ```bash
 $ python launcher.py --updaterequirements
 ```
+
+
+**NOTE:** you can combine these commands as well. for example is you want to format the files, then update the dependencies list and then start the app, you can do as follow:
+
+```bash
+$ python launcher.py -f -u -s
+```
