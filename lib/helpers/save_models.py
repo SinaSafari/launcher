@@ -9,15 +9,10 @@ def save_model(model, model_name) -> bool:
     Parameters
     ----------
     model
-        trined model that is going to saved in filesystem as a file
+        trained model that is going to saved in filesystem as a file
     model_name: str
         name of the model that is going to be the name of the file also
         the name that stores in database (maybe the url path as well)
-
-    Attributes
-    ----------
-    arg : str
-        This is where we store arg,
     """
 
     filename = f"{os.getcwd()}/storage/${model_name}.model"
