@@ -17,6 +17,7 @@ def cli(argument_list):
 
             if current_argument in ("-u", "--updaterequirements"):
                 run_update_requirements_txt_command()
+                print("✅ requirements.txt updated successfully")
             elif current_argument in ("-s", "--serve"):
                 run_serve_app_command()
             elif current_argument in ("-t", "--test"):

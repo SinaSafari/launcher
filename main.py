@@ -4,8 +4,12 @@ load_dotenv("./.env.local")
 
 import os
 from fastapi import FastAPI
+from starlette.graphql import GraphQLApp
+import graphene
+
 from db.config import database
 from db.init_db import init_db
+from app.graphql.queries import Query
 
 
 # routers
@@ -18,6 +22,7 @@ app = FastAPI()
 @app.on_event("startup")
 async def startup():
     await database.connect()
+    # todo: make it runs once. in sql code or in python
     await init_db(os.getenv("APP_MODE"))
 
 
@@ -26,5 +31,9 @@ async def shutdown():
     await database.disconnect()
 
 
+# restapi routes
 app.include_router(app_info_router)
 app.include_router(diabetes_router, prefix="/diabetes")
+
+# graphql app
+app.add_route("/gql", GraphQLApp(schema=graphene.Schema(query=Query)))
