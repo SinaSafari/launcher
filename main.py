@@ -8,9 +8,8 @@ from fastapi.staticfiles import StaticFiles
 from starlette.graphql import GraphQLApp
 import graphene
 
-from db.config import database
-from db.init_db import init_db
 from app.graphql.queries import Query
+from lib.app.events import on_app_startup, on_app_shut_down
 
 
 # routers
@@ -22,14 +21,12 @@ app = FastAPI()
 
 @app.on_event("startup")
 async def startup():
-    await database.connect()
-    # todo: make it runs once. in sql code or in python
-    await init_db(os.getenv("APP_MODE"))
+    await on_app_startup()
 
 
 @app.on_event("shutdown")
 async def shutdown():
-    await database.disconnect()
+    await on_app_shut_down()
 
 
 # static files route
