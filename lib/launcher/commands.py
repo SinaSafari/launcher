@@ -1,5 +1,7 @@
 import os
 
+import threading
+
 
 def run_update_requirements_txt_command():
     os.system("pip freeze > requirements.txt ")
@@ -15,3 +17,7 @@ def run_tests_command():
 
 def run_format_command():
     os.system("black .")
+
+
+def run_client_app_dev():
+    os.system("cd client && npm run dev")
