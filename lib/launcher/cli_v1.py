@@ -8,11 +8,20 @@ from lib.launcher.commands import (
     run_update_requirements_txt_command,
     run_client_app_dev,
 )
+from lib.launcher.scaffold import scaffold, descaffold
 
 
 def cli(argument_list):
-    short_options = "ustfc"
-    long_options = ["updaterequirements", "serve", "test", "format", "client"]
+    short_options = "ustfcgd"
+    long_options = [
+        "updaterequirements",
+        "serve",
+        "test",
+        "format",
+        "client",
+        "generate",
+        "descaffold",
+    ]
     try:
         arguments, values = getopt.getopt(argument_list, short_options, long_options)
         for current_argument, current_value in arguments:
@@ -31,6 +40,11 @@ def cli(argument_list):
             elif current_argument in ("-c", "--client"):
                 client_thread = threading.Thread(target=run_client_app_dev)
                 client_thread.start()
+            elif current_argument in ("-g", "--generate"):
+                print(current_value)
+                scaffold(values[0])
+            elif current_argument in ("-d", "--descaffold"):
+                descaffold(values[0])
             else:
                 print("invalid arguments")
                 sys.exit()
