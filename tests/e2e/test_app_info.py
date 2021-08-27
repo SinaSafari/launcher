@@ -3,7 +3,7 @@ from tests import client
 
 
 def test_app_info():
-    response = client.get("/")
+    response = client.get("/api/v1")
     res = response.json()
 
     assert response.status_code == 200

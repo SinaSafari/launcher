@@ -5,7 +5,7 @@ from tests import client
 
 def test_prediction_diabetes_model():
     data = "0.07786339"
-    response = client.post(f"/diabetes/test?data_diabetes={data}")
+    response = client.post(f"/api/v1/diabetes/test?data_diabetes={data}")
     res = response.json()
     assert "result" in res
 

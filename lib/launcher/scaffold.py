@@ -115,11 +115,11 @@ def scaffold(name: str) -> bool:
     if not name:
         print("⚠️ name is required")
         exit(1)
-    scaffold_printer(create_model, f"{name} model")
-    scaffold_printer(create_repository, f"{name} repository")
-    scaffold_printer(create_service, f"{name} service")
-    scaffold_printer(create_controller, f"{name} controller")
-    scaffold_printer(create_api_route, f"{name} api")
+    scaffold_printer(create_model, f"{name}")
+    scaffold_printer(create_repository, f"{name}")
+    scaffold_printer(create_service, f"{name}")
+    scaffold_printer(create_controller, f"{name}")
+    scaffold_printer(create_api_route, f"{name}")
 
     # todo: uncomment this when the structure has been created.
     # scaffold_printer(create_gql_resolver, name)
